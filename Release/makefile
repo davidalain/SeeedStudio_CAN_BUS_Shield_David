@@ -11,6 +11,7 @@ RM := del
 -include subdir.mk
 -include libraries\SPI\src/subdir.mk
 -include libraries\CAN_BUS_Shield-master/subdir.mk
+-include examples/subdir.mk
 -include core\core/subdir.mk
 -include objects.mk
 
@@ -51,39 +52,39 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 AR += \
-C:/Users/DavidAlain/workspace.cpp/SeeedStudio_CAN_BUS_Shield_examples/Release/arduino.ar \
+D:/Repositorio_de_Projetos/5-PESSOAL/SeeedStudio_CAN_BUS_Shield_David/Release/arduino.ar \
 
 ELF += \
-SeeedStudio_CAN_BUS_Shield_examples.elf \
+SeeedStudio_CAN_BUS_Shield_David.elf \
 
 HEX += \
-SeeedStudio_CAN_BUS_Shield_examples.hex \
+SeeedStudio_CAN_BUS_Shield_David.hex \
 
 
 # All Target
-all: SeeedStudio_CAN_BUS_Shield_examples
+all: SeeedStudio_CAN_BUS_Shield_David
 
 # Tool invocations
-SeeedStudio_CAN_BUS_Shield_examples: $(HEX)
+SeeedStudio_CAN_BUS_Shield_David: $(HEX)
 	@echo 'Building target: $@'
 	@echo 'Printing size:'
-	"C:\Users\DavidAlain\eclipse\cpp-neon2\eclipse\/arduinoPlugin/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.3-arduino2/bin/avr-size" -A "C:/Users/DavidAlain/workspace.cpp/SeeedStudio_CAN_BUS_Shield_examples/Release/SeeedStudio_CAN_BUS_Shield_examples.elf"
+	"C:\Users\DavidAlain\eclipse\cpp-neon2\eclipse\/arduinoPlugin/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.3-arduino2/bin/avr-size" -A "D:/Repositorio_de_Projetos/5-PESSOAL/SeeedStudio_CAN_BUS_Shield_David/Release/SeeedStudio_CAN_BUS_Shield_David.elf"
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-C:/Users/DavidAlain/workspace.cpp/SeeedStudio_CAN_BUS_Shield_examples/Release/arduino.ar: $(AR_OBJ)
+D:/Repositorio_de_Projetos/5-PESSOAL/SeeedStudio_CAN_BUS_Shield_David/Release/arduino.ar: $(AR_OBJ)
 	@echo 'Starting archiver'
-	"C:\Users\DavidAlain\eclipse\cpp-neon2\eclipse\/arduinoPlugin/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.3-arduino2/bin/avr-gcc-ar" rcs    C:/Users/DavidAlain/workspace.cpp/SeeedStudio_CAN_BUS_Shield_examples/Release/arduino.ar $(AR_OBJ)
+	"C:\Users\DavidAlain\eclipse\cpp-neon2\eclipse\/arduinoPlugin/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.3-arduino2/bin/avr-gcc-ar" rcs    D:/Repositorio_de_Projetos/5-PESSOAL/SeeedStudio_CAN_BUS_Shield_David/Release/arduino.ar $(AR_OBJ)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-SeeedStudio_CAN_BUS_Shield_examples.elf: $(LINK_OBJ) $(AR)
+SeeedStudio_CAN_BUS_Shield_David.elf: $(LINK_OBJ) $(AR)
 	@echo 'Starting combiner'
-	"C:\Users\DavidAlain\eclipse\cpp-neon2\eclipse\/arduinoPlugin/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.3-arduino2/bin/avr-gcc" -Wall -Wextra -Os -g -flto -fuse-linker-plugin -Wl,--gc-sections -mmcu=atmega328p -o "C:/Users/DavidAlain/workspace.cpp/SeeedStudio_CAN_BUS_Shield_examples/Release/SeeedStudio_CAN_BUS_Shield_examples.elf"   $(LINK_OBJ) $(AR)   C:/Users/DavidAlain/workspace.cpp/SeeedStudio_CAN_BUS_Shield_examples/Release/arduino.ar  "-LC:/Users/DavidAlain/workspace.cpp/SeeedStudio_CAN_BUS_Shield_examples/Release" -lm
+	"C:\Users\DavidAlain\eclipse\cpp-neon2\eclipse\/arduinoPlugin/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.3-arduino2/bin/avr-gcc" -Wall -Wextra -Os -g -flto -fuse-linker-plugin -Wl,--gc-sections -mmcu=atmega328p -o "C:/Users/DavidAlain/workspace.cpp/SeeedStudio_CAN_BUS_Shield_David/Release/SeeedStudio_CAN_BUS_Shield_David.elf"   $(LINK_OBJ) $(AR)   D:/Repositorio_de_Projetos/5-PESSOAL/SeeedStudio_CAN_BUS_Shield_David/Release/arduino.ar  "-LC:/Users/DavidAlain/workspace.cpp/SeeedStudio_CAN_BUS_Shield_David/Release" -lm
 	@echo 'Finished building: $@'
 	@echo ' '
 
-SeeedStudio_CAN_BUS_Shield_examples.hex: $(ELF)
+SeeedStudio_CAN_BUS_Shield_David.hex: $(ELF)
 	@echo 'Do all objcopy commands'
 	${A.RECIPE.OBJCOPY.EEP.PATTERN}
 	${A.RECIPE.OBJCOPY.HEX.PATTERN}

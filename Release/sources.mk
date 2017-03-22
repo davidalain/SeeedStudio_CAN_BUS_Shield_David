@@ -37,6 +37,7 @@ CPP_DEPS :=
 SUBDIRS := \
 . \
 core/core \
+examples \
 libraries/CAN_BUS_Shield-master \
 libraries/SPI/src \
 

@@ -26,10 +26,10 @@ unsigned char stmp[8] = {ledHIGH, 1, 2, 3, ledLOW, 5, 6, 7};
 MCP_CAN CAN(SPI_CS_PIN);                                    // Set CS pin
 
 void messageCb( const std_msgs::Empty& toggle_msg){
-	//digitalWrite(13, HIGH-digitalRead(13));   // blink the led
-	// send data:  id = 0x00, standrad frame, data len = 8, stmp: data buf
-	CAN.sendMsgBuf(0x70,0, 8, stmp);
-	delay(1000);                       // send data per 100ms
+  //digitalWrite(13, HIGH-digitalRead(13));   // blink the led
+  // send data:  id = 0x00, standrad frame, data len = 8, stmp: data buf
+  CAN.sendMsgBuf(0x70,0, 8, stmp);
+  delay(1000);                       // send data per 100ms
 }
 
 ros::Subscriber<std_msgs::Empty> sub("toggle_led", &messageCb );
@@ -41,27 +41,27 @@ ros::Subscriber<std_msgs::Empty> sub("toggle_led", &messageCb );
 
 void setup()
 {
-	Serial.begin(115200);
-	nh.initNode();
-	nh.subscribe(sub);
+    Serial.begin(115200);
+    nh.initNode();
+    nh.subscribe(sub);
 
-	while (CAN_OK != CAN.begin(CAN_500KBPS))              // init can bus : baudrate = 500k
-	{
-		Serial.println("CAN BUS Shield init fail");
-		Serial.println(" Init CAN BUS Shield again");
-		delay(100);
-	}
-	Serial.println("CAN BUS Shield init ok!");
+    while (CAN_OK != CAN.begin(CAN_500KBPS))              // init can bus : baudrate = 500k
+    {
+        Serial.println("CAN BUS Shield init fail");
+        Serial.println(" Init CAN BUS Shield again");
+        delay(100);
+    }
+    Serial.println("CAN BUS Shield init ok!");
 }
 
 
 void loop()
-{
-
-	nh.spinOnce();
-	delay(1);
+{   
+    
+    nh.spinOnce();
+    delay(1);
 }
 
 /*********************************************************************************************************
   END FILE
- *********************************************************************************************************/
+*********************************************************************************************************/
